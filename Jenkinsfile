@@ -2,7 +2,7 @@ pipeline {
     agent any
 
 //	tools {
-//		jdk 'jdk8'
+//		jdk 'jdk11'
 //	}
 //	environment {
 //		M2_INSTALL = "/usr/bin/mvn"
@@ -31,8 +31,8 @@ pipeline {
 
         stage('Deployment') {
             steps {
-                sh 'sshpass -p "wiculty" scp target/gamutgurus.war wiculty@172.17.0.2:/home/wiculty/Distros/apache-tomcat-9.0.80/webapps'
-                sh 'sshpass -p "wiculty" ssh wiculty@172.17.0.2 "/home/wiculty/Distros/apache-tomcat-9.0.80/bin/startup.sh"'
+                sh 'sshpass -p "sreepalkumar" scp target/gamutgurus.war sreepalkumar@172.17.0.2:/home/sreepalkumar/Distros/apache-tomcat-9.0.80/webapps'
+                sh 'sshpass -p "sreepalkumar" ssh sreepalkumar@172.17.0.2 "/home/sreepalkumar/Distros/apache-tomcat-9.0.80/bin/startup.sh"'
             }
         }
     }
